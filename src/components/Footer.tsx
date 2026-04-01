@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Instagram, Youtube, Linkedin } from "lucide-react";
-import { TikTokIcon, SnapchatIcon, ThreadsIcon, XIcon } from "./SocialIcons";
+import { TikTokIcon, SnapchatIcon, XIcon } from "./SocialIcons";
 
 const socialLinks = [
   { icon: Instagram, href: "https://www.instagram.com/girona_.ai/", label: "Instagram" },
@@ -9,7 +9,6 @@ const socialLinks = [
   { icon: XIcon, href: "https://x.com", label: "X" },
   { icon: TikTokIcon, href: "https://tiktok.com", label: "TikTok" },
   { icon: SnapchatIcon, href: "https://snapchat.com", label: "Snapchat" },
-  { icon: ThreadsIcon, href: "https://threads.net", label: "Threads" },
   { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
 ];
 

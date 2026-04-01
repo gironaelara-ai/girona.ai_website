@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Instagram, Youtube, Linkedin } from "lucide-react";
-import { TikTokIcon, SnapchatIcon, ThreadsIcon, XIcon } from "./SocialIcons";
+import { TikTokIcon, SnapchatIcon, XIcon } from "./SocialIcons";
 import { toast } from "sonner";
 import { supabase } from "@/lib/supabase";
 
@@ -11,7 +11,6 @@ const socialLinks = [
   { icon: XIcon, href: "https://x.com", label: "X (Twitter)" },
   { icon: TikTokIcon, href: "https://tiktok.com", label: "TikTok" },
   { icon: SnapchatIcon, href: "https://snapchat.com", label: "Snapchat" },
-  { icon: ThreadsIcon, href: "https://threads.net", label: "Threads" },
   { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
 ];
 
