@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Instagram, Youtube, Linkedin } from "lucide-react";
+import { Instagram, Youtube, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 import { TikTokIcon, SnapchatIcon, XIcon } from "./SocialIcons";
 
 const socialLinks = [
@@ -13,7 +13,6 @@ const socialLinks = [
 ];
 
 const Footer = () => {
-
   return (
     <motion.footer
       initial={{ opacity: 0, y: 20 }}
@@ -23,37 +22,108 @@ const Footer = () => {
       className="bg-secondary border-t border-border"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-12 sm:py-16">
-        <div className="max-w-2xl mx-auto">
-          <div className="flex items-center justify-center gap-3">
-            {socialLinks.map(({ icon: Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors"
-              >
-                <Icon size={18} />
-              </a>
-            ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 lg:gap-16">
+          {/* Left Column - Logo & Brand Description */}
+          <div className="space-y-6">
+            <Link to="/" className="flex items-center gap-0.5">
+              <span className="font-bold text-2xl text-foreground">Girona</span>
+              <span className="font-bold text-2xl text-primary">.ai</span>
+            </Link>
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
+              Girona AI is a public education campaign by Oyik AI — AI automation technology, London, UK.
+            </p>
+          </div>
+
+          {/* Middle Column - Vertical Navigation */}
+          <div className="flex flex-col gap-4">
+            <nav className="flex flex-col gap-4 text-sm font-medium">
+              <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">Home</Link>
+              <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">About</Link>
+              <Link to="/blog" className="text-muted-foreground hover:text-primary transition-colors">Blog</Link>
+              <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link>
+            </nav>
+          </div>
+
+          {/* Right Column - Contact & Socials */}
+          <div className="space-y-8">
+            <div className="space-y-6">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-foreground">Contact Us</h3>
+              
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 shrink-0 rounded-full bg-primary/10 flex items-center justify-center text-primary mt-1">
+                    <Mail size={16} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-bold uppercase text-muted-foreground tracking-widest">Email</p>
+                    <a href="mailto:gironaelara@gmail.com" className="text-sm text-foreground hover:text-primary transition-colors">
+                      gironaelara@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 shrink-0 rounded-full bg-primary/10 flex items-center justify-center text-primary mt-1">
+                    <Phone size={16} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-bold uppercase text-muted-foreground tracking-widest">Phone</p>
+                    <a href="tel:+447352328646" className="text-sm text-foreground hover:text-primary transition-colors">
+                      +44 7352 328646
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 shrink-0 rounded-full bg-primary/10 flex items-center justify-center text-primary mt-1">
+                    <MapPin size={16} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-bold uppercase text-muted-foreground tracking-widest">Location</p>
+                    <p className="text-sm text-foreground">
+                      OYIK LTD, SUIT 4, 5 museum SQUARE, LEICESTER, LE16UF
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 shrink-0 rounded-full bg-primary/10 flex items-center justify-center text-primary mt-1">
+                    <MapPin size={16} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-bold uppercase text-muted-foreground tracking-widest">Location</p>
+                    <p className="text-sm text-foreground">
+                      OYIK LTD, 124 CITY ROAD LONDON, EC1V 2NX
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4 pt-2">
+              <h3 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Social</h3>
+              <div className="flex items-center gap-2">
+                {socialLinks.map(({ icon: Icon, href, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="w-8 h-8 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary transition-colors"
+                  >
+                    <Icon size={14} />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <Link to="/" className="flex items-center gap-0.5 shrink-0">
-            <span className="font-bold text-lg text-foreground">Girona</span>
-            <span className="font-bold text-lg text-primary">.ai</span>
-          </Link>
-          <nav aria-label="Footer navigation" className="flex items-center gap-6 text-sm text-muted-foreground">
-            <Link to="/" className="hover:text-foreground transition-colors">Home</Link>
-            <Link to="/about" className="hover:text-foreground transition-colors">About</Link>
-            <Link to="/blog" className="hover:text-foreground transition-colors">Blog</Link>
-            <Link to="/contact" className="hover:text-foreground transition-colors">Contact</Link>
-          </nav>
+      {/* Bottom Bar - Simplified */}
+      <div className="border-t border-border/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-6 flex flex-col sm:flex-row items-center justify-center">
           <p className="text-xs text-muted-foreground">© 2026 Girona. All rights reserved.</p>
         </div>
       </div>
