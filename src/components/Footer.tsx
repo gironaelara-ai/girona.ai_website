@@ -26,10 +26,10 @@ const Footer = () => {
           {/* Left Column - Logo & Brand Description */}
           <div className="space-y-6">
             <Link to="/" className="flex items-center gap-0.5">
-              <span className="font-bold text-2xl text-foreground">Girona</span>
-              <span className="font-bold text-2xl text-primary">.ai</span>
+              <span className="font-bold text-3xl text-foreground">Girona</span>
+              <span className="font-bold text-3xl text-primary">.ai</span>
             </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
+            <p className="text-muted-foreground text-base leading-relaxed max-w-md">
               Girona AI is a public education campaign by Oyik AI — AI automation technology, London, UK.
             </p>
           </div>
