@@ -35,7 +35,7 @@ const Footer = () => {
           </div>
 
           {/* Middle Column - Vertical Navigation */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 items-center md:items-center">
             <nav className="flex flex-col gap-4 text-sm font-medium">
               <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">Home</Link>
               <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">About</Link>
