@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Instagram, Youtube, Twitter, Linkedin } from "lucide-react";
+import { Instagram, Youtube, Linkedin } from "lucide-react";
+import { TikTokIcon, SnapchatIcon, ThreadsIcon, XIcon } from "./SocialIcons";
 import { toast } from "sonner";
 import { supabase } from "@/lib/supabase";
 
 const socialLinks = [
   { icon: Instagram, href: "https://www.instagram.com/girona_.ai/", label: "Instagram" },
   { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
-  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+  { icon: XIcon, href: "https://x.com", label: "X (Twitter)" },
+  { icon: TikTokIcon, href: "https://tiktok.com", label: "TikTok" },
+  { icon: SnapchatIcon, href: "https://snapchat.com", label: "Snapchat" },
+  { icon: ThreadsIcon, href: "https://threads.net", label: "Threads" },
   { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
 ];
 
