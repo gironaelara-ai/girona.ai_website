@@ -131,6 +131,8 @@ const BlogForm = ({ initialData, onClose, onSuccess }: any) => {
     description: initialData?.description || "",
     content: initialData?.content || "",
     image_url: initialData?.image_url || "",
+    has_faq: initialData?.has_faq || false,
+    faqs: initialData?.faqs || Array(5).fill({ question: "", answer: "" }),
   });
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [saving, setSaving] = useState(false);
@@ -252,6 +254,65 @@ const BlogForm = ({ initialData, onClose, onSuccess }: any) => {
             content={formData.content} 
             onChange={(html) => setFormData({ ...formData, content: html })} 
           />
+        </div>
+
+        <div className="pt-4 border-t border-border">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h3 className="text-lg font-bold text-foreground">Blog FAQ Section</h3>
+              <p className="text-xs text-muted-foreground">Add up to 5 frequently asked questions for this specific post.</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setFormData({ ...formData, has_faq: !formData.has_faq })}
+              className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none ${
+                formData.has_faq ? "bg-primary" : "bg-muted"
+              }`}
+            >
+              <span
+                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                  formData.has_faq ? "translate-x-6" : "translate-x-1"
+                }`}
+              />
+            </button>
+          </div>
+
+          {formData.has_faq && (
+            <div className="space-y-4 pt-2">
+              {formData.faqs.map((faq: any, index: number) => (
+                <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-3 p-4 bg-secondary/30 rounded-xl border border-border">
+                  <div className="space-y-1">
+                    <label className="text-[10px] font-bold uppercase text-primary tracking-wider">Question {index + 1}</label>
+                    <input
+                      type="text"
+                      value={faq.question}
+                      onChange={(e) => {
+                        const newFaqs = [...formData.faqs];
+                        newFaqs[index] = { ...newFaqs[index], question: e.target.value };
+                        setFormData({ ...formData, faqs: newFaqs });
+                      }}
+                      className="w-full px-3 py-2 rounded-lg border border-border bg-background text-sm"
+                      placeholder="Enter question..."
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <label className="text-[10px] font-bold uppercase text-primary tracking-wider">Answer {index + 1}</label>
+                    <textarea
+                      rows={1}
+                      value={faq.answer}
+                      onChange={(e) => {
+                        const newFaqs = [...formData.faqs];
+                        newFaqs[index] = { ...newFaqs[index], answer: e.target.value };
+                        setFormData({ ...formData, faqs: newFaqs });
+                      }}
+                      className="w-full px-3 py-2 rounded-lg border border-border bg-background text-sm resize-none"
+                      placeholder="Enter answer..."
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="flex justify-end pt-4 gap-3">

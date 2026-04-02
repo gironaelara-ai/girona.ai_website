@@ -1,6 +1,9 @@
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import ContactFormSection from "@/components/ContactFormSection";
+import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 
@@ -15,6 +18,21 @@ const item = {
 };
 
 const AboutPage = () => {
+  const [faqs, setFaqs] = useState([]);
+
+  useEffect(() => {
+    const fetchFaqs = async () => {
+      const { data } = await supabase.from("site_settings").select("value").eq("key", "about_faqs").single();
+      if (data && data.value) {
+        try {
+          setFaqs(JSON.parse(data.value));
+        } catch (e) {
+          console.error("Error parsing about FAQs", e);
+        }
+      }
+    };
+    fetchFaqs();
+  }, []);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
@@ -434,6 +452,13 @@ const AboutPage = () => {
               ))}
             </div>
           </motion.section>
+
+          {/* FAQ */}
+          <FAQSection 
+            faqs={faqs} 
+            title="About FAQ" 
+            subtitle="Learn more about who we are, what we do, and our relationship with Oyik AI."
+          />
 
           {/* CTA */}
           <motion.section

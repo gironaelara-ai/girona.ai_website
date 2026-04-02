@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import ContactFormSection from "@/components/ContactFormSection";
+import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { mockBlogs } from "@/components/BlogPreviewSection";
@@ -120,6 +121,16 @@ const BlogDetailPage = () => {
               )}
             </div>
           </motion.div>
+          
+          {blog.has_faq && (
+            <div className="mt-16 border-t border-border pt-16">
+              <FAQSection 
+                faqs={blog.faqs} 
+                title={`${blog.category} FAQ`} 
+                subtitle={`Deepen your understanding of this ${blog.category.toLowerCase()} topic with these common questions.`}
+              />
+            </div>
+          )}
         </article>
       </main>
       <ContactFormSection />

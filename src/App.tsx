@@ -20,6 +20,7 @@ import { BlogsManager } from "./pages/admin/BlogsManager";
 import { ContactsManager } from "./pages/admin/ContactsManager";
 import { WaitlistManager } from "./pages/admin/WaitlistManager";
 import { SettingsManager } from "./pages/admin/SettingsManager";
+import { FAQManager } from "./pages/admin/FAQManager";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +47,7 @@ const App = () => (
               <Route path="/admin/contacts" element={<ContactsManager />} />
               <Route path="/admin/waitlist" element={<WaitlistManager />} />
               <Route path="/admin/settings" element={<SettingsManager />} />
+              <Route path="/admin/faq" element={<FAQManager />} />
             </Route>
           </Route>
 

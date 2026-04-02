@@ -1,5 +1,5 @@
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
-import { LayoutDashboard, FileText, Users, Clock, Settings, LogOut, Menu, X } from "lucide-react";
+import { LayoutDashboard, FileText, Users, Clock, Settings, LogOut, Menu, X, HelpCircle } from "lucide-react";
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
@@ -10,6 +10,7 @@ const navigation = [
   { name: "Contacts", href: "/admin/contacts", icon: Users },
   { name: "Waitlist", href: "/admin/waitlist", icon: Clock },
   { name: "Website Content", href: "/admin/settings", icon: Settings },
+  { name: "FAQ Manager", href: "/admin/faq", icon: HelpCircle },
 ];
 
 export const AdminLayout = () => {

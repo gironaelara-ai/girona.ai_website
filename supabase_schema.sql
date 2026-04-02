@@ -6,6 +6,8 @@ CREATE TABLE public.blogs (
   content text NOT NULL,
   category text NOT NULL,
   image_url text,
+  has_faq boolean DEFAULT false,
+  faqs jsonb DEFAULT '[]'::jsonb,
   created_at timestamp with time zone DEFAULT now() NOT NULL
 );
 

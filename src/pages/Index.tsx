@@ -1,14 +1,33 @@
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import FeatureStrip from "@/components/FeatureStrip";
 import AboutSection from "@/components/AboutSection";
 import BlogPreviewSection from "@/components/BlogPreviewSection";
+import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import ContactFormSection from "@/components/ContactFormSection";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 
 const Index = () => {
+  const [faqs, setFaqs] = useState([]);
+
+  useEffect(() => {
+    const fetchFaqs = async () => {
+      const { data } = await supabase.from("site_settings").select("value").eq("key", "home_faqs").single();
+      if (data && data.value) {
+        try {
+          setFaqs(JSON.parse(data.value));
+        } catch (e) {
+          console.error("Error parsing home FAQs", e);
+        }
+      }
+    };
+    fetchFaqs();
+  }, []);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -36,6 +55,11 @@ const Index = () => {
         <FeatureStrip />
         <AboutSection />
         <BlogPreviewSection />
+        <FAQSection 
+          faqs={faqs} 
+          title="Home FAQ" 
+          subtitle="Everything you need to know about Girona AI's mission and how to stay updated."
+        />
         <CTASection />
         <ContactFormSection />
       </main>
