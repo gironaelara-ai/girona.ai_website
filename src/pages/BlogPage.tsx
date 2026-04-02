@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
+import ContactFormSection from "@/components/ContactFormSection";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { mockBlogs } from "@/components/BlogPreviewSection";
@@ -113,6 +114,7 @@ const BlogPage = () => {
           )}
         </div>
       </main>
+      <ContactFormSection />
       <Footer />
     </div>
   );

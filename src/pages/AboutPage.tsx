@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import ContactFormSection from "@/components/ContactFormSection";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 
@@ -458,11 +459,12 @@ const AboutPage = () => {
               Follow @girona_.ai
             </motion.a>
             <p className="text-muted-foreground text-xs mt-6">
-              Girona AI is a public education campaign by Oyik AI — AI automation technology, Leicester & London, UK.
+              Girona AI is a public education campaign by Oyik AI — AI automation agency, London, UK.
             </p>
           </motion.section>
         </div>
       </main>
+      <ContactFormSection />
       <Footer />
     </div>
   );

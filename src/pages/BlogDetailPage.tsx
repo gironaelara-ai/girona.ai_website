@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import ContactFormSection from "@/components/ContactFormSection";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { mockBlogs } from "@/components/BlogPreviewSection";
@@ -121,6 +122,7 @@ const BlogDetailPage = () => {
           </motion.div>
         </article>
       </main>
+      <ContactFormSection />
       <Footer />
     </div>
   );

@@ -107,18 +107,6 @@ const Footer = () => {
                   <div>
                     <p className="text-[10px] font-bold uppercase text-muted-foreground tracking-widest">Location</p>
                     <p className="text-sm text-foreground">
-                      OYIK LTD, SUIT 4, 5 museum SQUARE, LEICESTER, LE16UF
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 shrink-0 rounded-full bg-primary/10 flex items-center justify-center text-primary mt-1">
-                    <MapPin size={16} />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-bold uppercase text-muted-foreground tracking-widest">Location</p>
-                    <p className="text-sm text-foreground">
                       OYIK LTD, 124 CITY ROAD LONDON, EC1V 2NX
                     </p>
                   </div>
