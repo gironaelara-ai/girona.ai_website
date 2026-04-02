@@ -30,8 +30,34 @@ const Footer = () => {
               <span className="font-bold text-3xl text-primary">.ai</span>
             </Link>
             <p className="text-muted-foreground text-base leading-relaxed max-w-md">
-              Girona AI is a public education campaign by Oyik AI — AI automation technology, London, UK.
+              Girona AI is a public education campaign by{" "}
+              <a 
+                href="https://oyik.ai/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-primary hover:underline font-medium"
+              >
+                Oyik AI
+              </a>{" "}
+              — AI automation agency, London, UK.
             </p>
+            
+            <div className="space-y-4 pt-2">
+              <div className="flex items-center gap-2">
+                {socialLinks.map(({ icon: Icon, href, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="w-8 h-8 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary transition-colors"
+                  >
+                    <Icon size={14} />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Middle Column - Vertical Navigation */}
@@ -97,24 +123,6 @@ const Footer = () => {
                     </p>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div className="space-y-4 pt-2">
-              <h3 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Social</h3>
-              <div className="flex items-center gap-2">
-                {socialLinks.map(({ icon: Icon, href, label }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    className="w-8 h-8 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary transition-colors"
-                  >
-                    <Icon size={14} />
-                  </a>
-                ))}
               </div>
             </div>
           </div>
