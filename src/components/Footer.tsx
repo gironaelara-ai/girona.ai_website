@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Instagram, Youtube, Linkedin, Mail, Phone, MapPin } from "lucide-react";
-import { TikTokIcon, SnapchatIcon, XIcon } from "./SocialIcons";
+import { TikTokIcon, SnapchatIcon, XIcon, ThreadsIcon } from "./SocialIcons";
 
 const socialLinks = [
   { icon: Instagram, href: "https://www.instagram.com/girona_.ai/", label: "Instagram" },
   { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
   { icon: XIcon, href: "https://x.com", label: "X" },
+  { icon: ThreadsIcon, href: "https://threads.net", label: "Threads" },
   { icon: TikTokIcon, href: "https://tiktok.com", label: "TikTok" },
   { icon: SnapchatIcon, href: "https://snapchat.com", label: "Snapchat" },
   { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
