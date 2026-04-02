@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import { mockBlogs } from "@/components/BlogPreviewSection";
 import { supabase } from "@/lib/supabase";
+import DOMPurify from 'dompurify';
 
 const BlogDetailPage = () => {
   const { id } = useParams();
@@ -97,8 +98,17 @@ const BlogDetailPage = () => {
               </time>
             </div>
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-6">{blog.title}</h1>
-            <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed whitespace-pre-wrap">
-              {blog.content || (
+            <div className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground leading-relaxed">
+              {blog.content ? (
+                blog.content.includes('<') && blog.content.includes('>') ? (
+                  <div 
+                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.content) }} 
+                    className="prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-ul:text-muted-foreground prose-ol:text-muted-foreground" 
+                  />
+                ) : (
+                  <p className="whitespace-pre-wrap">{blog.content}</p>
+                )
+              ) : (
                 <>
                   <p>{blog.description}</p>
                   <p className="mt-4">

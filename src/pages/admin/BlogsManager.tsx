@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
 import { Edit, Trash, Plus, X } from "lucide-react";
+import { RichTextEditor } from "@/components/RichTextEditor";
 
 export const BlogsManager = () => {
   const [blogs, setBlogs] = useState<any[]>([]);
@@ -247,13 +248,9 @@ const BlogForm = ({ initialData, onClose, onSuccess }: any) => {
 
         <div>
           <label className="text-sm font-medium text-foreground block mb-1">Full Content</label>
-          <textarea
-            required
-            rows={10}
-            value={formData.content}
-            onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-            className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/30 font-mono text-sm"
-            placeholder="Write the full markdown or text content here..."
+          <RichTextEditor 
+            content={formData.content} 
+            onChange={(html) => setFormData({ ...formData, content: html })} 
           />
         </div>
 
