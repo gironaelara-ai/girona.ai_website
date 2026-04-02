@@ -12,6 +12,29 @@ const WaitlistPopup = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const [content, setContent] = useState({
+    title: "Free AI Course Coming Soon 🚀",
+    description: "Be the first to get access when we launch.",
+    detail: "Join early and learn how to use AI tools, automation, and real-world strategies to stay ahead."
+  });
+  const [loadingContent, setLoadingContent] = useState(true);
+
+  useEffect(() => {
+    const fetchContent = async () => {
+      const { data } = await supabase.from("site_settings").select("key, value");
+      if (data) {
+        const settings = data.reduce((acc: any, item: any) => ({ ...acc, [item.key]: item.value }), {});
+        setContent({
+          title: settings.waitlistPopupTitle || content.title,
+          description: settings.waitlistPopupDescription || content.description,
+          detail: settings.waitlistPopupDetail || content.detail,
+        });
+      }
+      setLoadingContent(false);
+    };
+    fetchContent();
+  }, []);
+
   useEffect(() => {
     const alreadyShown = sessionStorage.getItem(STORAGE_KEY);
     if (alreadyShown) return;
@@ -96,13 +119,13 @@ const WaitlistPopup = () => {
             {/* Content */}
             <div className="text-center mb-6">
               <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
-                Free AI Course Coming Soon 🚀
+                {content.title}
               </h2>
               <p className="text-sm text-muted-foreground font-medium mb-1">
-                Be the first to get access when we launch.
+                {content.description}
               </p>
               <p className="text-xs text-muted-foreground">
-                Join early and learn how to use AI tools, automation, and real-world strategies to stay ahead.
+                {content.detail}
               </p>
             </div>
 

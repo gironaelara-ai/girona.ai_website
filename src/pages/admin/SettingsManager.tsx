@@ -10,6 +10,9 @@ export const SettingsManager = () => {
       heroImage: "",
       aboutVideoUrl: "",
       heroProfileImage: "",
+      waitlistPopupTitle: "Free AI Course Coming Soon 🚀",
+      waitlistPopupDescription: "Be the first to get access when we launch.",
+      waitlistPopupDetail: "Join early and learn how to use AI tools, automation, and real-world strategies to stay ahead.",
     }
   });
   const [loading, setLoading] = useState(false);
@@ -120,6 +123,9 @@ export const SettingsManager = () => {
         { key: "heroImage", value: finalHeroImageUrl },
         { key: "aboutVideoUrl", value: finalVideoUrl },
         { key: "heroProfileImage", value: finalProfileUrl },
+        { key: "waitlistPopupTitle", value: settings.siteConfig.waitlistPopupTitle },
+        { key: "waitlistPopupDescription", value: settings.siteConfig.waitlistPopupDescription },
+        { key: "waitlistPopupDetail", value: settings.siteConfig.waitlistPopupDetail },
       ];
 
       for (const update of updates) {
@@ -306,6 +312,45 @@ export const SettingsManager = () => {
               </p>
             )}
             <p className="text-xs text-muted-foreground mt-2">Uploading a video will automatically change the About layout to display it. Click 'Remove Video' and Save to revert to text-only.</p>
+          </div>
+
+          <div className="pt-4 border-t border-border">
+            <h3 className="text-lg font-bold text-foreground mb-4">Waitlist Popup</h3>
+            
+            <div className="space-y-4">
+              <div>
+                <label className="text-sm font-medium text-foreground block mb-2">Popup Title</label>
+                <input
+                  type="text"
+                  value={settings.siteConfig.waitlistPopupTitle}
+                  onChange={(e) => updateConfig("waitlistPopupTitle", e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/30"
+                  placeholder="e.g. Free AI Course Coming Soon 🚀"
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-foreground block mb-2">Popup Description</label>
+                <input
+                  type="text"
+                  value={settings.siteConfig.waitlistPopupDescription}
+                  onChange={(e) => updateConfig("waitlistPopupDescription", e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/30"
+                  placeholder="e.g. Be the first to get access when we launch."
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-foreground block mb-2">Popup Detail (Small Text)</label>
+                <textarea
+                  rows={2}
+                  value={settings.siteConfig.waitlistPopupDetail}
+                  onChange={(e) => updateConfig("waitlistPopupDetail", e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/30 resize-none"
+                  placeholder="Join early and learn how to use AI tools..."
+                />
+              </div>
+            </div>
           </div>
 
           <button
