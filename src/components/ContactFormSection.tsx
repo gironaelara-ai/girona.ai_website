@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Instagram, Youtube, Linkedin } from "lucide-react";
+import { Instagram, Youtube, Linkedin, Facebook } from "lucide-react";
 import { TikTokIcon, SnapchatIcon, XIcon, ThreadsIcon } from "./SocialIcons";
 import { toast } from "sonner";
 import { supabase } from "@/lib/supabase";
@@ -8,6 +8,7 @@ import { supabase } from "@/lib/supabase";
 const ContactFormSection = () => {
   const [links, setLinks] = useState([
     { icon: Instagram, href: "https://www.instagram.com/girona_.ai/", label: "Instagram", key: "instagramUrl" },
+    { icon: Facebook, href: "https://facebook.com", label: "Facebook", key: "facebookUrl" },
     { icon: Youtube, href: "https://youtube.com", label: "YouTube", key: "youtubeUrl" },
     { icon: XIcon, href: "https://x.com", label: "X (Twitter)", key: "xUrl" },
     { icon: ThreadsIcon, href: "https://threads.net", label: "Threads", key: "threadsUrl" },

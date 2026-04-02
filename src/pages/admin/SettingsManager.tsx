@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
-import { Save } from "lucide-react";
+import { Save, Instagram, Youtube, Linkedin, Facebook, Twitter, MessageCircle, Video } from "lucide-react";
 
 export const SettingsManager = () => {
   const [settings, setSettings] = useState({
@@ -14,6 +14,7 @@ export const SettingsManager = () => {
       waitlistPopupDescription: "Be the first to get access when we launch.",
       waitlistPopupDetail: "Join early and learn how to use AI tools, automation, and real-world strategies to stay ahead.",
       instagramUrl: "https://www.instagram.com/girona_.ai/",
+      facebookUrl: "https://facebook.com",
       youtubeUrl: "https://youtube.com",
       xUrl: "https://x.com",
       threadsUrl: "https://threads.net",
@@ -134,6 +135,7 @@ export const SettingsManager = () => {
         { key: "waitlistPopupDescription", value: settings.siteConfig.waitlistPopupDescription },
         { key: "waitlistPopupDetail", value: settings.siteConfig.waitlistPopupDetail },
         { key: "instagramUrl", value: settings.siteConfig.instagramUrl },
+        { key: "facebookUrl", value: settings.siteConfig.facebookUrl },
         { key: "youtubeUrl", value: settings.siteConfig.youtubeUrl },
         { key: "xUrl", value: settings.siteConfig.xUrl },
         { key: "threadsUrl", value: settings.siteConfig.threadsUrl },
@@ -379,6 +381,17 @@ export const SettingsManager = () => {
                   onChange={(e) => updateConfig("instagramUrl", e.target.value)}
                   className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/30"
                   placeholder="https://www.instagram.com/..."
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-foreground block mb-2">Facebook URL</label>
+                <input
+                  type="url"
+                  value={settings.siteConfig.facebookUrl}
+                  onChange={(e) => updateConfig("facebookUrl", e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/30"
+                  placeholder="https://facebook.com/..."
                 />
               </div>
 

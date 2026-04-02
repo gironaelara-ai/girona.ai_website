@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
 import { motion } from "framer-motion";
-import { Instagram, Youtube, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { Instagram, Youtube, Linkedin, Mail, Phone, MapPin, Facebook } from "lucide-react";
 import { TikTokIcon, SnapchatIcon, XIcon, ThreadsIcon } from "./SocialIcons";
 
 const Footer = () => {
   const [links, setLinks] = useState([
     { icon: Instagram, href: "https://www.instagram.com/girona_.ai/", label: "Instagram", key: "instagramUrl" },
+    { icon: Facebook, href: "https://facebook.com", label: "Facebook", key: "facebookUrl" },
     { icon: Youtube, href: "https://youtube.com", label: "YouTube", key: "youtubeUrl" },
     { icon: XIcon, href: "https://x.com", label: "X", key: "xUrl" },
     { icon: ThreadsIcon, href: "https://threads.net", label: "Threads", key: "threadsUrl" },
