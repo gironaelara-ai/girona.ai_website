@@ -13,6 +13,13 @@ export const SettingsManager = () => {
       waitlistPopupTitle: "Free AI Course Coming Soon 🚀",
       waitlistPopupDescription: "Be the first to get access when we launch.",
       waitlistPopupDetail: "Join early and learn how to use AI tools, automation, and real-world strategies to stay ahead.",
+      instagramUrl: "https://www.instagram.com/girona_.ai/",
+      youtubeUrl: "https://youtube.com",
+      xUrl: "https://x.com",
+      threadsUrl: "https://threads.net",
+      tiktokUrl: "https://tiktok.com",
+      snapchatUrl: "https://snapchat.com",
+      linkedinUrl: "https://linkedin.com",
     }
   });
   const [loading, setLoading] = useState(false);
@@ -126,6 +133,13 @@ export const SettingsManager = () => {
         { key: "waitlistPopupTitle", value: settings.siteConfig.waitlistPopupTitle },
         { key: "waitlistPopupDescription", value: settings.siteConfig.waitlistPopupDescription },
         { key: "waitlistPopupDetail", value: settings.siteConfig.waitlistPopupDetail },
+        { key: "instagramUrl", value: settings.siteConfig.instagramUrl },
+        { key: "youtubeUrl", value: settings.siteConfig.youtubeUrl },
+        { key: "xUrl", value: settings.siteConfig.xUrl },
+        { key: "threadsUrl", value: settings.siteConfig.threadsUrl },
+        { key: "tiktokUrl", value: settings.siteConfig.tiktokUrl },
+        { key: "snapchatUrl", value: settings.siteConfig.snapchatUrl },
+        { key: "linkedinUrl", value: settings.siteConfig.linkedinUrl },
       ];
 
       for (const update of updates) {
@@ -348,6 +362,83 @@ export const SettingsManager = () => {
                   onChange={(e) => updateConfig("waitlistPopupDetail", e.target.value)}
                   className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/30 resize-none"
                   placeholder="Join early and learn how to use AI tools..."
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-4 border-t border-border">
+            <h3 className="text-lg font-bold text-foreground mb-4">Social Media Links</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="text-sm font-medium text-foreground block mb-2">Instagram URL</label>
+                <input
+                  type="url"
+                  value={settings.siteConfig.instagramUrl}
+                  onChange={(e) => updateConfig("instagramUrl", e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/30"
+                  placeholder="https://www.instagram.com/..."
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-foreground block mb-2">YouTube URL</label>
+                <input
+                  type="url"
+                  value={settings.siteConfig.youtubeUrl}
+                  onChange={(e) => updateConfig("youtubeUrl", e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/30"
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-foreground block mb-2">X (Twitter) URL</label>
+                <input
+                  type="url"
+                  value={settings.siteConfig.xUrl}
+                  onChange={(e) => updateConfig("xUrl", e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/30"
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-foreground block mb-2">Threads URL</label>
+                <input
+                  type="url"
+                  value={settings.siteConfig.threadsUrl}
+                  onChange={(e) => updateConfig("threadsUrl", e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/30"
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-foreground block mb-2">TikTok URL</label>
+                <input
+                  type="url"
+                  value={settings.siteConfig.tiktokUrl}
+                  onChange={(e) => updateConfig("tiktokUrl", e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/30"
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-foreground block mb-2">Snapchat URL</label>
+                <input
+                  type="url"
+                  value={settings.siteConfig.snapchatUrl}
+                  onChange={(e) => updateConfig("snapchatUrl", e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/30"
+                />
+              </div>
+
+              <div>
+                <label className="text-sm font-medium text-foreground block mb-2">LinkedIn URL</label>
+                <input
+                  type="url"
+                  value={settings.siteConfig.linkedinUrl}
+                  onChange={(e) => updateConfig("linkedinUrl", e.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/30"
                 />
               </div>
             </div>

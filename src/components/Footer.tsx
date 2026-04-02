@@ -1,19 +1,34 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { supabase } from "@/lib/supabase";
 import { motion } from "framer-motion";
 import { Instagram, Youtube, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 import { TikTokIcon, SnapchatIcon, XIcon, ThreadsIcon } from "./SocialIcons";
 
-const socialLinks = [
-  { icon: Instagram, href: "https://www.instagram.com/girona_.ai/", label: "Instagram" },
-  { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
-  { icon: XIcon, href: "https://x.com", label: "X" },
-  { icon: ThreadsIcon, href: "https://threads.net", label: "Threads" },
-  { icon: TikTokIcon, href: "https://tiktok.com", label: "TikTok" },
-  { icon: SnapchatIcon, href: "https://snapchat.com", label: "Snapchat" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-];
-
 const Footer = () => {
+  const [links, setLinks] = useState([
+    { icon: Instagram, href: "https://www.instagram.com/girona_.ai/", label: "Instagram", key: "instagramUrl" },
+    { icon: Youtube, href: "https://youtube.com", label: "YouTube", key: "youtubeUrl" },
+    { icon: XIcon, href: "https://x.com", label: "X", key: "xUrl" },
+    { icon: ThreadsIcon, href: "https://threads.net", label: "Threads", key: "threadsUrl" },
+    { icon: TikTokIcon, href: "https://tiktok.com", label: "TikTok", key: "tiktokUrl" },
+    { icon: SnapchatIcon, href: "https://snapchat.com", label: "Snapchat", key: "snapchatUrl" },
+    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn", key: "linkedinUrl" },
+  ]);
+
+  useEffect(() => {
+    const fetchSocialLinks = async () => {
+      const { data } = await supabase.from("site_settings").select("key, value");
+      if (data) {
+        const settings = data.reduce((acc: any, item: any) => ({ ...acc, [item.key]: item.value }), {});
+        setLinks(prev => prev.map(link => ({
+          ...link,
+          href: settings[link.key] || link.href
+        })));
+      }
+    };
+    fetchSocialLinks();
+  }, []);
   return (
     <motion.footer
       initial={{ opacity: 0, y: 20 }}
@@ -45,7 +60,7 @@ const Footer = () => {
             
             <div className="space-y-4 pt-2">
               <div className="flex items-center gap-2">
-                {socialLinks.map(({ icon: Icon, href, label }) => (
+                {links.map(({ icon: Icon, href, label }) => (
                   <a
                     key={label}
                     href={href}

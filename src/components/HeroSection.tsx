@@ -7,6 +7,7 @@ import heroGradientBg from "@/assets/hero-gradient-bg.webp";
 const HeroSection = () => {
   const [bgImage, setBgImage] = useState(heroGradientBg);
   const [profileImage, setProfileImage] = useState(gironaPhoto);
+  const [instagramUrl, setInstagramUrl] = useState("https://www.instagram.com/girona_.ai/");
 
   useEffect(() => {
     const fetchSettings = async () => {
@@ -15,6 +16,7 @@ const HeroSection = () => {
         const settings = data.reduce((acc: any, item: any) => ({ ...acc, [item.key]: item.value }), {});
         if (settings.heroProfileImage) setProfileImage(settings.heroProfileImage);
         if (settings.heroImage) setBgImage(settings.heroImage);
+        if (settings.instagramUrl) setInstagramUrl(settings.instagramUrl);
       }
     };
     fetchSettings();
@@ -52,7 +54,7 @@ const HeroSection = () => {
           </p>
           <div className="flex flex-wrap gap-4">
             <a
-              href="https://www.instagram.com/girona_.ai/"
+              href={instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity"
