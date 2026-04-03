@@ -75,7 +75,7 @@ const Footer = () => {
                     }`}
                   >
                     {label === "Threads" ? (
-                      <img src="/threads-icon.png" alt="Threads" className="w-full h-full rounded-full" />
+                      <img src="/threads-footer-icon.png" alt="Threads" className="w-full h-full rounded-full" />
                     ) : (
                       <Icon size={16} />
                     )}
