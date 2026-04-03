@@ -101,6 +101,8 @@ const ContactFormSection = () => {
                   >
                     {label === "Threads" ? (
                       <img src="/threads-icon.png" alt="Threads" className="w-full h-full rounded-full" />
+                    ) : label === "Snapchat" ? (
+                      <img src="/snapchat-contact-icon.png" alt="Snapchat" className="w-full h-full rounded-full" />
                     ) : (
                       <Icon size={20} />
                     )}
