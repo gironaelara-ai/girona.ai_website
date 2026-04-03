@@ -76,6 +76,8 @@ const Footer = () => {
                   >
                     {label === "Threads" ? (
                       <img src="/threads-footer-icon.png" alt="Threads" className="w-full h-full rounded-full" />
+                    ) : label === "Snapchat" ? (
+                      <img src="/snapchat-footer-icon.png" alt="Snapchat" className="w-full h-full rounded-full" />
                     ) : (
                       <Icon size={16} />
                     )}
