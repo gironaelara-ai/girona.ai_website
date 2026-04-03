@@ -86,18 +86,26 @@ const ContactFormSection = () => {
               Have questions or ready to get started? Get in touch with Girona.ai today and let's build smarter solutions together.
             </p>
             <div className="flex items-center gap-3 pt-2">
-              {links.map(({ icon: Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:opacity-80 transition-opacity"
-                >
-                  <Icon size={18} />
-                </a>
-              ))}
+                {links.map(({ icon: Icon, href, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className={`rounded-full flex items-center justify-center transition-all ${
+                      label === "Threads" 
+                      ? "w-10 h-10 hover:scale-110" 
+                      : "w-10 h-10 bg-primary text-primary-foreground hover:opacity-80"
+                    }`}
+                  >
+                    {label === "Threads" ? (
+                      <img src="/threads-icon.png" alt="Threads" className="w-full h-full rounded-full" />
+                    ) : (
+                      <Icon size={20} />
+                    )}
+                  </a>
+                ))}
             </div>
           </div>
 

@@ -68,9 +68,17 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="w-8 h-8 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary transition-colors"
+                    className={`rounded-full flex items-center justify-center transition-all ${
+                      label === "Threads" 
+                      ? "w-8 h-8 hover:scale-110" 
+                      : "w-8 h-8 bg-primary/10 hover:bg-primary/20 text-primary"
+                    }`}
                   >
-                    <Icon size={14} />
+                    {label === "Threads" ? (
+                      <img src="/threads-icon.png" alt="Threads" className="w-full h-full rounded-full" />
+                    ) : (
+                      <Icon size={16} />
+                    )}
                   </a>
                 ))}
               </div>
